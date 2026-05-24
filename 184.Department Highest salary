@@ -1,0 +1,7 @@
+with max_table as (select d.name,d.id,MAX(e.salary) as maxSalary
+from Employee as e join Department as d on e.departmentId=d.id
+group by d.name ) 
+
+select max_table.name as Department,Employee.name as Employee,salary as Salary
+from max_table join employee on max_table.id=employee.departmentId
+where max_table.maxSalary=employee.salary
