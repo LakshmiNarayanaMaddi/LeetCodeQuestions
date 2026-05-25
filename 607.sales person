@@ -1,0 +1,10 @@
+with rednames as (select s.name
+from orders as o join company as c 
+on o.com_id=c.com_id
+right join salesperson as s
+on o.sales_id=s.sales_id
+where c.name="RED")
+
+select name 
+from salesperson
+where name not in (select * from rednames)
