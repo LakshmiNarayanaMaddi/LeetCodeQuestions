@@ -1,0 +1,25 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+
+        int hlength=haystack.length();
+        int nlength=needle.length();
+
+        if(haystack.length()<needle.length()){
+            return -1;
+        }
+
+        else{
+            int min=10000;
+            boolean found=false;
+            for(int i=0;i<=(hlength-nlength);i++){
+                if(haystack.substring(i,nlength+i).equals(needle)){
+                    if(i<min){
+                        min=i;
+                        found=true;
+                    }
+                }
+            }
+            return found==true? min: -1;
+        }
+    }
+}
