@@ -1,0 +1,67 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int length=digits.length;
+        ArrayList<Integer> al=new ArrayList<>();
+
+        int[] temp=new int[length];
+
+        temp[length-1]=1;
+        int carry=0;
+
+        for(int i=length-1;i>=0;i--){
+            digits[i]=digits[i]+temp[i]+carry;
+
+            carry=digits[i]/10;
+            digits[i]=digits[i]%10;
+
+        }
+
+        int[] finalOutput=new int[length+1];
+
+        if(carry!=0){
+
+            finalOutput[0]=carry;
+            for(int i=1;i<length;i++){
+                finalOutput[i]=digits[i-1];
+            }
+            return finalOutput;
+        }
+        else{
+            return digits;
+        }
+
+
+        
+        
+    }
+}
+
+
+
+
+        // int length=digits.length;
+        // int fact=1;
+        // int sum=0;
+        // for(int i=length-1;i>=0;i--){
+        //     sum=sum+digits[i]*fact;
+        //     fact*=10;
+        // }
+        // sum=sum+1;
+        // System.out.println(sum);
+        // String str=Integer.toString(sum);
+        // System.out.println(str);
+        // int finalLength=str.length();
+        // int[] output=new int[finalLength];
+        // int j=finalLength-1;
+        // int rem=0;
+
+        // while(sum>0){
+        //     rem=sum%10;
+        //     output[j]=rem;
+        //     sum=sum/10;
+        //     j--;
+        // }
+
+        // return output;
+
+
